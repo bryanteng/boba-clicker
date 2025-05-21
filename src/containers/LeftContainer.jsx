@@ -5,15 +5,17 @@ import BobaPearls from '../components/BobaPearls';
 import { increment, decrementByAmount } from '../redux/bobaSlice';
 
 function LeftContainer() {
-  const count = useSelector(state => state.boba.bobaCount);
-  const name = useSelector(state => state.user.name);
-  const dispatch = useDispatch();
+    const bobaCount = useSelector(state => state.boba.bobaCount);
+    const bps = useSelector(state => state.boba.bps);
+    const name = useSelector(state => state.user.name);
+    const dispatch = useDispatch();
 
   return (
     <div className='left-container'>
       <header>
         <div> {name} </div>
-        <div> boba: {count} </div>
+        <div> boba: {bobaCount} </div>
+        <div> bps: {bps} </div>
         <img
           src={"/images/boba_pearl.webp"}
           draggable={false}
@@ -27,7 +29,7 @@ function LeftContainer() {
 
       <div className="wave"></div>
       <div className="tea-fill">
-        <BobaPearls count={count} />
+        <BobaPearls count={bobaCount} />
       </div>
     </div>
   );

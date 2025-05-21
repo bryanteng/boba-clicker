@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     bobaCount: 0,
-    bps: 1
+    bps: 0
 }
 
 export const bobaSlice = createSlice({
@@ -25,5 +25,5 @@ export const bobaSlice = createSlice({
 })
 
 const { actions, reducer } = bobaSlice
-export const { increment, decrementByAmount, incrementByAmount } = actions
+export const { increment, decrementByAmount, incrementByAmount, incrementBPS } = actions
 export default reducer

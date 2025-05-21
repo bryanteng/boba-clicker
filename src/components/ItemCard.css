@@ -1,0 +1,47 @@
+.item-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    user-select: none;
+    grid-template-columns: 1fr 2fr 1fr ;
+
+    .item-image {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        cursor: pointer;
+        user-select: none;
+        grid-column: 1;
+    }
+
+    .item-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 10px;
+        grid-column: 2;
+    }
+
+    .item-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .item-price {
+        font-size: 1.2rem;
+        margin-left: 10px;
+    }
+    
+    .item-amount { 
+        grid-column: 3;
+        margin-left: auto;
+        right: 0;
+        font-size: 1.2rem;
+        margin-right: 25px;
+    }
+}

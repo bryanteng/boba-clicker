@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import BobaPearls from './components/BobaPearls';
 import LeftContainer from './containers/LeftContainer';
 import MiddleContainer from './containers/MiddleContainer';
 import RightContainer from './containers/RightContainer';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrementByAmount, incrementByAmount } from './redux/bobaSlice';
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { incrementByAmount } from './redux/bobaSlice';
 
 function App() {
 
