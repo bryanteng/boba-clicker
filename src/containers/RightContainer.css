@@ -1,4 +1,6 @@
 .right-container{
     grid-column: 3;
     border-left: 2px solid black; 
+
+    overflow-y: scroll;
 }

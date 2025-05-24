@@ -1,0 +1,6 @@
+.player-info{
+    border: 1px solid black;
+    grid-row: 1;
+
+    height: 30vh;
+}

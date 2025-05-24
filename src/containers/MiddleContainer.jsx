@@ -1,14 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import './MiddleContainer.css';
-
+import PlayerInfo from '../components/PlayerInfo';
+import ItemsShowcase from '../components/ItemsShowcase';
 
 function MiddleContainer() {
+
     return(
         <div className='middle-container'>
-            <header>
-                <h1>Middle Container</h1>
-            </header>
+            <PlayerInfo />
+            <ItemsShowcase />
         </div>
     )
 }

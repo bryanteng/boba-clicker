@@ -15,6 +15,10 @@
     overflow: hidden;
     border-right: 2px solid black;
   }
+
+  .header{
+    margin-top: 20px;
+  }
   
   .tea-fill {
     position: absolute;

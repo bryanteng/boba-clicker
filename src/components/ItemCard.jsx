@@ -34,7 +34,7 @@ function ItemCard({ item, index }) {
             <img
                 src={item.image}
                 draggable={false}
-                className="item-image"
+                className={`item-image ${item.name}`}
                 alt="logo"
             />
             <div className="item-info"> 

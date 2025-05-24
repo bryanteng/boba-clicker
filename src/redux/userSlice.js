@@ -1,5 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+// save data should be a hash of game state. sha256 hash all data on save -> decode on load
+// data should be saved in local storage
+// data that should be saved:
+// - bobaCount
+// - bps
+// - totalBoba
+// - totalClicks
+// - name
+// - items
+// - item amounts
+
 const initialState = {
     name: "Bob A.",
     items: [
@@ -7,14 +18,21 @@ const initialState = {
         { id: 1, amount: 0 },
         { id: 2, amount: 0 },
         { id: 3, amount: 0 },
+        { id: 4, amount: 0 },
+        { id: 5, amount: 0 },
+        { id: 6, amount: 0 },
+        { id: 7, amount: 0 },
+        { id: 8, amount: 0 },
+        { id: 9, amount: 0 },
     ],
+    saveData: ""
 }
 
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        updateName: (state, action) => {
+        updatePlayerName: (state, action) => {
             state.name = action.payload
         },
         updateItemAmount: (state, action) => {
@@ -29,5 +47,5 @@ const userSlice = createSlice({
 })
 
 const { actions, reducer } = userSlice
-export const { updateName, updateItemAmount } = actions
+export const { updatePlayerName, updateItemAmount } = actions
 export default reducer

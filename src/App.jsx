@@ -13,8 +13,8 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      dispatch(incrementByAmount(bps));
-    }, 1000);
+      dispatch(incrementByAmount(bps/10));
+    }, 100);
 
     return () => clearInterval(interval);
   } );
