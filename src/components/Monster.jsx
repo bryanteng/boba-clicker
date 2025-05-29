@@ -1,0 +1,125 @@
+import React, {useState, useEffect } from 'react';
+import './Monster.css';
+import { clear } from '@testing-library/user-event/dist/clear';
+
+function Monster({spawnMonster, setSpawnMonster}) {
+    const monsters = [
+        { name: "Bobamonster", health: 100, speed: 20, hue: 55, saturate: 10, spawnRate: 30 },
+        { name: "Bobamonster II", health: 200, speed: 30, hue: 150, saturate: 10, spawnRate: 20 },
+        { name: "Bobamonster III", health: 300, speed: 40, hue: 180, saturate: 10, spawnRate: 20 },
+        { name: "Bobamonster IV", health: 400, speed: 50, hue: 245, saturate: 10, spawnRate: 15 },
+        { name: "Bobamonster V", health: 500, speed: 60, hue: 380, saturate: 10, spawnRate: 10 },
+        { name: "Bobamonster King", health: 600, speed: 70, hue: 0, saturate: 0, spawnRate: 5 },
+    ]
+
+    const MAX_WIDTH = Math.floor(window.innerWidth * 0.6); // cant spawn on shop to avoid accidental buying
+    const MAX_HEIGHT = window.innerHeight - 250; // account for height of monster
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [location, setLocation] = useState({ x: MAX_WIDTH, y: MAX_HEIGHT });
+    const [monster, setMonster] = useState(monsters[0]);
+    const [health, setHealth] = useState(100);
+    const [maxHealth, setMaxHealth] = useState(100);
+    const [monsterSpawned, setMonsterSpawned] = useState(false);
+
+    useEffect(() => {
+        if(!spawnMonster) return;
+        const newMonster = pickWithWeight();
+        setMonster(newMonster);
+        setHealth(newMonster.health);
+        setMaxHealth(newMonster.health);
+        setMonsterSpawned(true);
+
+        const monsterLocationInterval = setInterval(() => {
+            const newX = Math.floor(Math.random() * MAX_WIDTH);
+            const newY = Math.floor(Math.random() * MAX_HEIGHT);
+            setLocation({ x: newX, y: newY });
+        }, 2000);
+
+        const monsterSpawnTimeout = setTimeout(() => {
+            setMonsterSpawned(false);
+            setSpawnMonster(false);
+        }, 7500);
+
+        return () => {
+            clearInterval(monsterLocationInterval)
+            clearTimeout(monsterSpawnTimeout);
+            setMonsterSpawned(false);
+        };
+    }, [spawnMonster]);
+
+    useEffect(() => {
+        const monsterMoveInterval = setInterval(() => {
+            setPosition((prevPosition) => {
+                const deltaX = location.x - prevPosition.x;
+                const deltaY = location.y - prevPosition.y;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const speed = 20;
+                const moveX = (deltaX / distance) * speed;
+                const moveY = (deltaY / distance) * speed;
+                const newX = prevPosition.x + moveX;
+                const newY = prevPosition.y + moveY;
+                return { x: newX, y: newY };
+            });
+        }, 150);
+
+        return () => clearInterval(monsterMoveInterval);
+    }, [location]);
+
+    const pickWithWeight = () => {
+        const rates = monsters.map(level => level.spawnRate);
+        let sum = 0
+        const weigths = []
+        for(let i = 0; i < rates.length; i++) {
+            sum += rates[i];
+            weigths.push(sum);
+        }
+
+        const random = Math.random() * sum;
+        for(let i = 0; i < rates.length; i++) {
+            if(random <= weigths[i]) {
+                return monsters[i];
+            }
+        }
+        return monsters[0];
+    }
+
+    const handleMonsterClick = () => {
+        setHealth(prevHealth => {
+            const newHealth = prevHealth - 10;
+            if (newHealth <= 0) {
+                alert(`You defeated ${monster.name}!`);
+                setPosition({ x: 0, y: 0 });
+                return 0; // Reset health to 0
+            }
+            return newHealth;
+        });
+    }
+
+    return (
+        <>
+        { monsterSpawned ? (
+            <>
+            <div className="monster-container" style={{ left: position.x, top: position.y }}>
+                <img className='monster' src="./images/bobamonster.png" alt={monster.name} 
+                    style={{
+                        filter: `hue-rotate(${monster.hue}deg) saturate(${monster.saturate})`
+                    }}
+                    onClick={handleMonsterClick}
+                    />
+            </div>
+            <div className="monster-info">
+                <h3>{monster.name}</h3>
+                <div className="health-container">
+                    <progress className="health-bar" id="health" value={health} max={maxHealth}></progress>
+                    <span className="health-text">{health}/{maxHealth}</span>
+                </div>
+            </div>
+        </>
+        ) : null
+        }
+        </>
+
+    );
+}
+
+export default Monster;

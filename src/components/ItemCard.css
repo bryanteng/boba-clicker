@@ -8,6 +8,7 @@
     user-select: none;
     grid-template-columns: 1fr 2fr 1fr ;
     text-align: left;
+    
     .item-image {
         width: 70px;
         height: 70px;

@@ -10,6 +10,7 @@ import { createSlice } from "@reduxjs/toolkit"
 // - name
 // - items
 // - item amounts
+// time played
 
 const initialState = {
     name: "Bob A.",
@@ -25,6 +26,7 @@ const initialState = {
         { id: 8, amount: 0 },
         { id: 9, amount: 0 },
     ],
+    timePlayed: 0,
     saveData: ""
 }
 
@@ -37,15 +39,15 @@ const userSlice = createSlice({
         },
         updateItemAmount: (state, action) => {
             const id  = action.payload
-            console.log(state, action, id, JSON.stringify(state.items))
-
             const item = state.items.find(item => item.id === id)
             item.amount += 1
-            console.log(state.items)
+        },
+        updateTimePlayed: (state, action) => {
+            state.timePlayed += action.payload
         },
     },
 })
 
 const { actions, reducer } = userSlice
-export const { updatePlayerName, updateItemAmount } = actions
+export const { updatePlayerName, updateItemAmount, updateTimePlayed } = actions
 export default reducer
