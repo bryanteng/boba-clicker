@@ -7,6 +7,7 @@ import { decrementByAmount, incrementBPS } from '../redux/bobaSlice';
 function ItemCard({ item, index }) {
     const dispatch = useDispatch();
     const itemAmount = useSelector(state => state.user.items[index].amount);
+    const lifetimeBoba = useSelector(state => state.boba.totalBoba);
     const bobaCount = useSelector(state => state.boba.bobaCount);
     
     const [ cost, setCost ] = useState(item.baseCost);
@@ -30,19 +31,35 @@ function ItemCard({ item, index }) {
     }
 
     return (
-        <div className='item-card' onClick={handleBuy}>
-            <img
-                src={item.image}
-                draggable={false}
-                className={`item-image ${item.name}`}
-                alt="logo"
-            />
-            <div className="item-info"> 
-                <div className="item-name"> {item.name} </div>
-                <div className="item-price"> {cost} </div>
+        lifetimeBoba > item.baseCost ? (
+            <div className='item-card' onClick={handleBuy}>
+                <img
+                    src={item.image}
+                    draggable={false}
+                    className={`item-image ${item.name}`}
+                    alt="logo"
+                />
+                <div className="item-info"> 
+                    <div className="item-name"> {item.name} </div>
+                    <div className="item-price"> {cost} </div>
+                </div>
+                <div className="item-amount"> {itemAmount} </div>
             </div>
-            <div className="item-amount"> {itemAmount} </div>
-        </div>
+        ) : lifetimeBoba > item.baseCost/2 ? (
+            <div className='item-card disabled'>
+                <img
+                    src={'/images/boba_pearl.webp'}
+                    draggable={false}
+                    className={`item-image locked-item`}
+                    alt="logo"
+                />
+                <div className="item-info"> 
+                    <div className="item-name"> ??? </div>
+                    <div className="item-price"> {cost} </div>
+                </div>
+                <div className="item-amount"> ? </div>
+            </div>
+        ) : null
     )
 }
 

@@ -4,8 +4,8 @@ import LeftContainer from './containers/LeftContainer';
 import MiddleContainer from './containers/MiddleContainer';
 import RightContainer from './containers/RightContainer';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTimePlayed } from './redux/userSlice';
-import { incrementByAmount } from './redux/bobaSlice';
+import { updateTimePlayed, updateUserState } from './redux/userSlice';
+import { incrementByAmount, updateBobaState } from './redux/bobaSlice';
 import Monster from './components/Monster';
 
 function App() {
@@ -13,6 +13,19 @@ function App() {
   const bps = useSelector(state => state.boba.bps);
   const dispatch = useDispatch();
   const [spawnMonster, setSpawnMonster] = useState(false);
+
+  useEffect(() => {
+    const save_file = localStorage.getItem('boba_clicker')
+    const { boba, user } = JSON.parse(save_file || '{}')
+    if (save_file) {
+      console.log("Loaded save file:", boba, user)
+      dispatch(updateBobaState(boba))
+      dispatch(updateUserState(user))
+      console.log("Game state loaded from saved data.")
+    } else {
+      console.log("No save file found, starting fresh.")
+    }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

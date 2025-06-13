@@ -17,7 +17,7 @@
         user-select: none;
         grid-column: 1;
         object-fit: cover;
-
+        background-color: burlywood;
         .bobarista{
             object-position: -20% 0;
         }

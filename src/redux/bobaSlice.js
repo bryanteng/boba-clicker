@@ -33,9 +33,16 @@ export const bobaSlice = createSlice({
         state.totalBoba += 1
         state.bobaCount += 1
     },
+    updateBobaState: (state, action) => {
+        const { bobaCount, bps, totalBoba, totalClicks } = action.payload
+        state.bobaCount = bobaCount || state.bobaCount
+        state.bps = bps || state.bps
+        state.totalBoba = totalBoba || state.totalBoba
+        state.totalClicks = totalClicks || state.totalClicks
+    },
   },
 })
 
 const { actions, reducer } = bobaSlice
-export const { increment, decrementByAmount, incrementByAmount, incrementBPS, incrementTotalClicks } = actions
+export const { increment, decrementByAmount, incrementByAmount, incrementBPS, incrementTotalClicks, updateBobaState } = actions
 export default reducer
