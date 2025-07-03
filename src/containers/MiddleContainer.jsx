@@ -1,8 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import './MiddleContainer.css';
 import PlayerInfo from '../components/PlayerInfo';
 import ItemsShowcase from '../components/ItemsShowcase';
+import './MiddleContainer.css';
 
 function MiddleContainer() {
 

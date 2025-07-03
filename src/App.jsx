@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import LeftContainer from './containers/LeftContainer';
 import MiddleContainer from './containers/MiddleContainer';
 import RightContainer from './containers/RightContainer';
+import Monster from './components/Monster';
+import NotificationsContainer from './containers/NotificationsContainer';
+import './App.css';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { updateTimePlayed, updateUserState } from './redux/userSlice';
 import { incrementByAmount, updateBobaState } from './redux/bobaSlice';
-import Monster from './components/Monster';
+import { addNotification } from './redux/notificationSlice';
 
 function App() {
-
   const bps = useSelector(state => state.boba.bps);
   const dispatch = useDispatch();
   const [spawnMonster, setSpawnMonster] = useState(false);
@@ -17,19 +19,29 @@ function App() {
   useEffect(() => {
     const save_file = localStorage.getItem('boba_clicker')
     const { boba, user } = JSON.parse(save_file || '{}')
+
     if (save_file) {
-      console.log("Loaded save file:", boba, user)
+      console.log("Loaded save file:", save_file)
       dispatch(updateBobaState(boba))
       dispatch(updateUserState(user))
-      console.log("Game state loaded from saved data.")
+      dispatch(addNotification({
+        type: 'info',
+        message: 'Welcome back! Your game has been loaded from the save file.',
+        autoClose: 10000
+      }))
     } else {
+      console.log(`Save file not found: ${save_file}`)
       console.log("No save file found, starting fresh.")
+      dispatch(addNotification({
+        type: 'info',
+        message: 'Welcome to the game! Click the boba to start earning boba!'
+      }))
     }
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      dispatch(incrementByAmount(bps/10));
+      dispatch(incrementByAmount(bps/10))
       dispatch(updateTimePlayed(100)); // Increment time played by 0.1 seconds
     }, 100);
 
@@ -48,6 +60,7 @@ function App() {
       <MiddleContainer />
       <RightContainer />
       <Monster spawnMonster={spawnMonster} setSpawnMonster={setSpawnMonster} />
+      <NotificationsContainer />
     </div>
   );
 }

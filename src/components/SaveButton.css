@@ -15,6 +15,7 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+        width: 144px;
     }
 
     .save-button:hover {
@@ -22,13 +23,19 @@
     }
 
     .save-button-info {
+        display: none;
         font-size: 11px;
         color: brown;
         text-align: left;
         align-self: end;
         margin: 2px;
-        text-shadow: #8b2d2d 0px 0px 10px;
         cursor: default;
+        &.focused {
+            transition: ease-in-out 0.3s;
+            display: inline;
+            color: brown;
+            text-shadow: #8b2d2d 0px 0px 20px;
+        }
     }
 }
 

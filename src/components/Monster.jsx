@@ -1,15 +1,21 @@
 import React, {useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { incrementByAmount } from '../redux/bobaSlice';
+import { addNotification } from '../redux/notificationSlice';
 import './Monster.css';
-import { clear } from '@testing-library/user-event/dist/clear';
 
 function Monster({spawnMonster, setSpawnMonster}) {
+
+    const dispatch = useDispatch();
+    const lifetimeBoba = useSelector(state => state.boba.totalBoba);
+    // difficult is time in seconds to defeat monster, reward is liftetime boba multiplier
     const monsters = [
-        { name: "Bobamonster", health: 100, speed: 20, hue: 55, saturate: 10, spawnRate: 30 },
-        { name: "Bobamonster II", health: 200, speed: 30, hue: 150, saturate: 10, spawnRate: 20 },
-        { name: "Bobamonster III", health: 300, speed: 40, hue: 180, saturate: 10, spawnRate: 20 },
-        { name: "Bobamonster IV", health: 400, speed: 50, hue: 245, saturate: 10, spawnRate: 15 },
-        { name: "Bobamonster V", health: 500, speed: 60, hue: 380, saturate: 10, spawnRate: 10 },
-        { name: "Bobamonster King", health: 600, speed: 70, hue: 0, saturate: 0, spawnRate: 5 },
+        { name: "Bobamonster", health: 100, speed: 20, hue: 55, saturate: 10, spawnRate: 30, difficulty: 10000, reward: 0.1},
+        { name: "Bobamonster II", health: 200, speed: 30, hue: 150, saturate: 10, spawnRate: 20, difficulty: 12000, reward: 0.2},
+        { name: "Bobamonster III", health: 300, speed: 40, hue: 180, saturate: 10, spawnRate: 20, difficulty: 13000, reward: 0.3},
+        { name: "Bobamonster IV", health: 400, speed: 50, hue: 245, saturate: 10, spawnRate: 15, difficulty: 14000, reward: 0.5},
+        { name: "Bobamonster V", health: 500, speed: 60, hue: 380, saturate: 10, spawnRate: 10, difficulty: 15000, reward: 1},
+        { name: "Bobamonster King", health: 600, speed: 70, hue: 0, saturate: 0, spawnRate: 5, difficulty: 15000, reward: 1.5},
     ]
 
     const MAX_WIDTH = Math.floor(window.innerWidth * 0.6); // cant spawn on shop to avoid accidental buying
@@ -38,7 +44,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
         const monsterSpawnTimeout = setTimeout(() => {
             setMonsterSpawned(false);
             setSpawnMonster(false);
-        }, 7500);
+        }, newMonster.difficulty);
 
         return () => {
             clearInterval(monsterLocationInterval)
@@ -87,8 +93,14 @@ function Monster({spawnMonster, setSpawnMonster}) {
         setHealth(prevHealth => {
             const newHealth = prevHealth - 10;
             if (newHealth <= 0) {
-                alert(`You defeated ${monster.name}!`);
+                dispatch(addNotification({
+                    type: 'success',
+                    message: `Success! ${monster.name} defeated! You earned ${monster.reward * lifetimeBoba} boba!`,
+                    autoClose: 5000
+                }));
                 setPosition({ x: 0, y: 0 });
+                dispatch(incrementByAmount(monster.reward * lifetimeBoba));
+                setMonsterSpawned(false);
                 return 0; // Reset health to 0
             }
             return newHealth;

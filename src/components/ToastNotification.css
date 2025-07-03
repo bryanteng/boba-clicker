@@ -1,0 +1,59 @@
+.toast {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #fef3e2; /* pastel milk tea */
+    color: #5b3a29; /* tapioca brown */
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    animation: slideUpFade 0.5s ease-out;
+    width: 20rem;
+
+    &.closing{
+        animation: slideDownFade 0.5s ease-out;
+    }
+  }
+  
+  .toast-icon {
+    font-size: 1.5rem;
+    animation: wiggle 1s ease-in-out infinite;
+  }
+  
+  .toast-message {
+    flex: 1;
+  }
+  
+  /* Toast animations */
+  @keyframes slideUpFade {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDownFade {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+  }
+  

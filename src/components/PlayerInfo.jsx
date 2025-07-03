@@ -18,8 +18,8 @@ function PlayerInfo() {
             Player Info
             <br/>
             <input onChange={changePlayerName} placeholder="Player Name" value={playerName} />
-            <div> lifetime clicks: {totalClicks} </div>
-            <div> lifetime boba: {totalBoba.toFixed(2)} </div>
+            <div> lifetime clicks: {totalClicks.toLocaleString()} </div>
+            <div> lifetime boba: {totalBoba.toLocaleString()} </div>
             <SaveButton />
         </div>
     )

@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   font-family: monospace;
 
-  overflow-y: hidden;
+  overflow: hidden;
 
   img, div, span, p {
     user-select: none;
