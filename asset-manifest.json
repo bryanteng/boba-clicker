@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bobaclicker/static/css/main.1c826153.css",
+    "main.js": "/bobaclicker/static/js/main.58bd6a70.js",
+    "static/js/453.bb827719.chunk.js": "/bobaclicker/static/js/453.bb827719.chunk.js",
+    "static/media/background.png": "/bobaclicker/static/media/background.8bf7d08fe25c4a8ab059.png",
+    "index.html": "/bobaclicker/index.html",
+    "main.1c826153.css.map": "/bobaclicker/static/css/main.1c826153.css.map",
+    "main.58bd6a70.js.map": "/bobaclicker/static/js/main.58bd6a70.js.map",
+    "453.bb827719.chunk.js.map": "/bobaclicker/static/js/453.bb827719.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c826153.css",
+    "static/js/main.58bd6a70.js"
+  ]
+}
