@@ -1,3 +1,13 @@
+const publicPath = process.env.PUBLIC_URL || '';
+const imagePath = `${publicPath}/images/`;
+
+function getImageUrl(imageName) {
+    return `${imagePath}/${imageName}`;
+}
+
+export const monsterImage = getImageUrl("bobamonster.png");
+export const defaultImage = getImageUrl("boba_pearl.webp");
+
 const items = [
     {
         id: 0,
@@ -5,7 +15,7 @@ const items = [
         description: "A simple pointer that collects boba.",
         baseCost: 10,
         increment: 10,
-        image: "./images/pointer.png",
+        image: getImageUrl("pointer.png"),
         bps: .1,
     },
     {
@@ -14,7 +24,7 @@ const items = [
         description: "A barista that brews boba drinks.",
         baseCost: 100,
         increment: 100,
-        image: "./images/barista.png",
+        image: getImageUrl("barista.png"),
         bps: .8,
     },
     {
@@ -23,7 +33,7 @@ const items = [
         description: "A farm that grows boba plants.",
         baseCost: 10000,
         increment: 10000,
-        image: "./images/bobafarm.png",
+        image: getImageUrl("bobafarm.png"),
         bps: 400,
     },
     {
@@ -32,7 +42,7 @@ const items = [
         description: "A factory that produces boba at an industrial scale.",
         baseCost: 1500000,
         increment: 1500000,
-        image: "./images/bobafactory.png",
+        image: getImageUrl("bobafactory.png"),
         bps: 1600,
     },
     {
@@ -41,7 +51,7 @@ const items = [
         description: "A mine that extracts pure tapioca pearls.",
         baseCost: 75000000,
         increment: 75000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 13000,
     },
     {
@@ -50,7 +60,7 @@ const items = [
         description: "Enhances tea DNA for optimized output.",
         baseCost: 500000000,
         increment: 500000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 34000,
     },
     {
@@ -59,7 +69,7 @@ const items = [
         description: "Uses quantum fusion to brew tea instantly.",
         baseCost: 3000000000,
         increment: 3000000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 78000,
     },
     {
@@ -68,7 +78,7 @@ const items = [
         description: "Boba for space travelers and alien connoisseurs.",
         baseCost: 20000000000,
         increment: 20000000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 180000,
     },
     {
@@ -77,7 +87,7 @@ const items = [
         description: "Produces boba across timelines simultaneously.",
         baseCost: 100000000000,
         increment: 100000000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 400000,
     },
     {
@@ -86,7 +96,7 @@ const items = [
         description: "Boba condensed into pure universal essence.",
         baseCost: 600000000000,
         increment: 600000000000,
-        image: "./images/boba_pearl.webp",
+        image: defaultImage,
         bps: 890000,
     }
 

@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react';
+import { defaultImage } from './../util/items.js'
+
 import './BobaPearls.css';
 
 const MAX_PEARLS = 50;
@@ -18,7 +20,7 @@ const BobaPearls = ({ count }) => {
       {pearlData.map((p, i) => (
         <img
           key={i}
-          src={"/images/boba_pearl.webp"}
+          src={defaultImage}
           className="boba-pearl"
           style={{
             left: `${p.left}%`,

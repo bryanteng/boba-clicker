@@ -1,0 +1,1 @@
+// Upgrades shop, appears after the shop header, renders as small icons

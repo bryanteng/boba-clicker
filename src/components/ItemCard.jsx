@@ -4,6 +4,7 @@ import { updateItemAmount } from '../redux/userSlice';
 import { decrementByAmount, incrementBPS } from '../redux/bobaSlice';
 import { addNotification } from '../redux/notificationSlice';
 import './ItemCard.css';
+import { defaultImage } from '../util/items';
 
 function ItemCard({ item, index }) {
     const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function ItemCard({ item, index }) {
         ) : lifetimeBoba > item.baseCost/2 ? (
             <div className='item-card disabled'>
                 <img
-                    src={'/images/boba_pearl.webp'}
+                    src={defaultImage}
                     draggable={false}
                     className={`item-image locked-item`}
                     alt="logo"

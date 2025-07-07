@@ -9,6 +9,7 @@ const SaveButton = () => {
     const [ saveButtonFocused, setSaveButtonFocused ] = useState(false);
     const dispatch = useDispatch();
     
+    // TODO: investigate why this breaks and resets game sometimes, need failsafe?
     const handleSave = () => {
         setSaveButtonText("Saving game... ");
         let saveData  = JSON.stringify(store.getState())

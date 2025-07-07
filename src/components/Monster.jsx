@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { incrementByAmount } from '../redux/bobaSlice';
 import { addNotification } from '../redux/notificationSlice';
+import { monsterImage } from './../util/items.js'
 import './Monster.css';
 
 function Monster({spawnMonster, setSpawnMonster}) {
@@ -95,7 +96,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
             if (newHealth <= 0) {
                 dispatch(addNotification({
                     type: 'success',
-                    message: `Success! ${monster.name} defeated! You earned ${monster.reward * lifetimeBoba} boba!`,
+                    message: `Success! ${monster.name} defeated! You earned ${(monster.reward * lifetimeBoba).toLocaleString()} boba!`,
                     autoClose: 5000
                 }));
                 setPosition({ x: 0, y: 0 });
@@ -112,7 +113,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
         { monsterSpawned ? (
             <>
             <div className="monster-container" style={{ left: position.x, top: position.y }}>
-                <img className='monster' src="./images/bobamonster.png" alt={monster.name} 
+                <img className='monster' src={monsterImage} alt={monster.name} 
                     style={{
                         filter: `hue-rotate(${monster.hue}deg) saturate(${monster.saturate})`
                     }}

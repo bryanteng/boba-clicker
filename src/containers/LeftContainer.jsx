@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import './LeftContainer.css';
 import BobaPearls from '../components/BobaPearls';
 // import ClickText from '../components/ClickText';
-import { increment, decrementByAmount, incrementTotalClicks } from '../redux/bobaSlice';
+import { incrementTotalClicks } from '../redux/bobaSlice';
+import { defaultImage } from './../util/items.js'
 
 function LeftContainer() {
     const bobaCount = useSelector(state => state.boba.bobaCount);
@@ -30,14 +31,12 @@ function LeftContainer() {
         <div> boba: {bobaCount.toLocaleString()} </div>
         <div> bps: {bps.toLocaleString()} </div>
         <img
-          src={"/images/boba_pearl.webp"}
+          src={defaultImage}
           draggable={false}
           className="App-logo"
           alt="logo"
           onClick={handleBobaClick}
         />
-        <button onClick={() => dispatch(increment())}>Add Boba</button>
-        <button onClick={() => dispatch(decrementByAmount(1))}>Remove Boba</button>
       </header>
 
       <div className="wave"></div>
