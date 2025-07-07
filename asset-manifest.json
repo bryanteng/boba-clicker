@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/boba-clicker/static/css/main.3ea61fff.css",
-    "main.js": "/boba-clicker/static/js/main.7faee329.js",
+    "main.js": "/boba-clicker/static/js/main.98f26b00.js",
     "static/js/453.bb827719.chunk.js": "/boba-clicker/static/js/453.bb827719.chunk.js",
     "static/media/background.png": "/boba-clicker/static/media/background.8bf7d08fe25c4a8ab059.png",
     "index.html": "/boba-clicker/index.html",
     "main.3ea61fff.css.map": "/boba-clicker/static/css/main.3ea61fff.css.map",
-    "main.7faee329.js.map": "/boba-clicker/static/js/main.7faee329.js.map",
+    "main.98f26b00.js.map": "/boba-clicker/static/js/main.98f26b00.js.map",
     "453.bb827719.chunk.js.map": "/boba-clicker/static/js/453.bb827719.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3ea61fff.css",
-    "static/js/main.7faee329.js"
+    "static/js/main.98f26b00.js"
   ]
 }
