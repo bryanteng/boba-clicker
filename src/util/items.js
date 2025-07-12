@@ -51,7 +51,7 @@ const items = [
         description: "A mine that extracts pure tapioca pearls.",
         baseCost: 75000000,
         increment: 75000000,
-        image: defaultImage,
+        image: getImageUrl("tapiocamine.png"),
         bps: 13000,
     },
     {
@@ -60,7 +60,7 @@ const items = [
         description: "Enhances tea DNA for optimized output.",
         baseCost: 500000000,
         increment: 500000000,
-        image: defaultImage,
+        image: getImageUrl("tearesearchlab.png"),
         bps: 34000,
     },
     {
@@ -69,7 +69,7 @@ const items = [
         description: "Uses quantum fusion to brew tea instantly.",
         baseCost: 3000000000,
         increment: 3000000000,
-        image: defaultImage,
+        image: getImageUrl("quantumteagenerator.png"),
         bps: 78000,
     },
     {
@@ -78,7 +78,7 @@ const items = [
         description: "Boba for space travelers and alien connoisseurs.",
         baseCost: 20000000000,
         increment: 20000000000,
-        image: defaultImage,
+        image: getImageUrl("intergalacticbobastation.png"),
         bps: 180000,
     },
     {

@@ -4,6 +4,7 @@ import MiddleContainer from './containers/MiddleContainer';
 import RightContainer from './containers/RightContainer';
 import Monster from './components/Monster';
 import NotificationsContainer from './containers/NotificationsContainer';
+import Header from './containers/Header';
 import './App.css';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -55,13 +56,16 @@ function App() {
   } );
 
   return (
-    <div className="App">
-      <LeftContainer />
-      <MiddleContainer />
-      <RightContainer />
-      <Monster spawnMonster={spawnMonster} setSpawnMonster={setSpawnMonster} />
-      <NotificationsContainer />
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        <LeftContainer />
+        <MiddleContainer />
+        <RightContainer />
+        <Monster spawnMonster={spawnMonster} setSpawnMonster={setSpawnMonster} />
+        <NotificationsContainer />
+      </div>
+    </>
   );
 }
 

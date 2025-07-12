@@ -1,14 +1,15 @@
 .App {
   text-align: center;
   background-color: #e3e3e1;
-  height: 100vh;
+  height: 95vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   font-family: monospace;
-
-  overflow: hidden;
-
   img, div, span, p {
     user-select: none;
   }
+}
+
+body {
+  overflow: hidden;
 }
