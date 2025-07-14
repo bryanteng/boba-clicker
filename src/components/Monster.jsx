@@ -27,6 +27,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
     const [health, setHealth] = useState(100);
     const [maxHealth, setMaxHealth] = useState(100);
     const [monsterSpawned, setMonsterSpawned] = useState(false);
+    const [countdown, setCountdown] = useState(0);
 
     useEffect(() => {
         if(!spawnMonster) return;
@@ -35,12 +36,29 @@ function Monster({spawnMonster, setSpawnMonster}) {
         setHealth(newMonster.health);
         setMaxHealth(newMonster.health);
         setMonsterSpawned(true);
-
+        setCountdown(newMonster.difficulty);
         const monsterLocationInterval = setInterval(() => {
             const newX = Math.floor(Math.random() * MAX_WIDTH);
             const newY = Math.floor(Math.random() * MAX_HEIGHT);
             setLocation({ x: newX, y: newY });
         }, 2000);
+
+        const countdownFramerate = 100
+        const countdownInterval = setInterval(() => {
+            setCountdown((prevCountdown) => {
+                if (prevCountdown <= 0) {
+                    clearInterval(countdownInterval);
+                    dispatch(addNotification({
+                        type: 'failure',
+                        message: `Time's up! ${monster.name} escaped!`,
+                        autoClose: 5000
+                    }));
+                    setMonsterSpawned(false);
+                    return 0;
+                }
+                return prevCountdown - countdownFramerate;
+            });
+        }, countdownFramerate);
 
         const monsterSpawnTimeout = setTimeout(() => {
             setMonsterSpawned(false);
@@ -50,6 +68,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
         return () => {
             clearInterval(monsterLocationInterval)
             clearTimeout(monsterSpawnTimeout);
+            clearInterval(countdownInterval);
             setMonsterSpawned(false);
         };
     }, [spawnMonster]);
@@ -108,6 +127,9 @@ function Monster({spawnMonster, setSpawnMonster}) {
         });
     }
 
+    const healthPercentage = (health / maxHealth) * 100;
+    const countdownPercentage = (countdown / monster.difficulty) * 100;
+
     return (
         <>
         { monsterSpawned ? (
@@ -122,9 +144,16 @@ function Monster({spawnMonster, setSpawnMonster}) {
             </div>
             <div className="monster-info">
                 <h3>{monster.name}</h3>
-                <div className="health-container">
-                    <progress className="health-bar" id="health" value={health} max={maxHealth}></progress>
-                    <span className="health-text">{health}/{maxHealth}</span>
+                <div className="monster-countdown">
+                <span className="countdown-label">Time left: {(countdown / 1000).toFixed(1)}s</span>
+                <div className="bar-outer">
+                    <div className="bar-inner countdown-bar" style={{ width: `${countdownPercentage}%` }}></div>
+                </div>
+
+                <span className="health-label">Health: {health} / {maxHealth}</span>
+                <div className="bar-outer">
+                    <div className="bar-inner health-bar" style={{ width: `${healthPercentage}%` }}></div>
+                </div>
                 </div>
             </div>
         </>
