@@ -14,6 +14,7 @@ function NotificationsContainer() {
     }
 
     // TODO: add a greyed close all notifications button that lights up if there are notifications
+    // TODO: fix issue with multiple of the same notification being displayed
     return (
         <div className='notifications-container'>
             {notifications.map( notification => (

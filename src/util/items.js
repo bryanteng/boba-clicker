@@ -87,7 +87,7 @@ const items = [
         description: "Produces boba across timelines simultaneously.",
         baseCost: 100000000000,
         increment: 100000000000,
-        image: defaultImage,
+        image: getImageUrl("timewarpedbubblechamber.png"),
         bps: 400000,
     },
     {
@@ -96,7 +96,7 @@ const items = [
         description: "Boba condensed into pure universal essence.",
         baseCost: 600000000000,
         increment: 600000000000,
-        image: defaultImage,
+        image: getImageUrl("bobalithicsingularitycore.png"),
         bps: 890000,
     }
 
