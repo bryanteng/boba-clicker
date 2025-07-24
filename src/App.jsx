@@ -8,7 +8,7 @@ import Header from './containers/Header';
 import './App.css';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTimePlayed, updateUserState } from './redux/userSlice';
+import { updateTimePlayed, updateUserState, updateMonstersSeen } from './redux/userSlice';
 import { incrementByAmount, updateBobaState } from './redux/bobaSlice';
 import { addNotification } from './redux/notificationSlice';
 
@@ -48,6 +48,7 @@ function App() {
 
     const interval2 = setInterval(() => {
       setSpawnMonster(true);
+      dispatch(updateMonstersSeen());
     }, 300000);
     return () =>{ 
       clearInterval(interval)

@@ -102,4 +102,32 @@ const items = [
 
 ]
 
+const bobaGuns = [
+    {
+      tier: 1,
+      name: "Pearl Popper",
+      description: "A basic boba shooter. Shoots one tapioca pearl at a time."
+    },
+    {
+      tier: 2,
+      name: "Tapioca Blaster",
+      description: "Upgraded pressure chamber, fires rapid boba bursts."
+    },
+    {
+      tier: 3,
+      name: "Milk Tea Cannon",
+      description: "Pressurized milk tea reservoir—splash damage included."
+    },
+    {
+      tier: 4,
+      name: "Brown Sugar Obliterator",
+      description: "Overheats with syrupy power, melts through monsters."
+    },
+    {
+      tier: 5,
+      name: "Bobalithic Railgun",
+      description: "Harnesses singularity-grade tea tech for instant boba vaporization."
+    }
+  ];
+
 export default items;

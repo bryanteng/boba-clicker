@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { incrementByAmount } from '../redux/bobaSlice';
+import { updateMonstersSlain } from '../redux/userSlice';
 import { addNotification } from '../redux/notificationSlice';
 import { monsterImage } from './../util/items.js'
 import './Monster.css';
@@ -9,6 +10,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
 
     const dispatch = useDispatch();
     const lifetimeBoba = useSelector(state => state.boba.totalBoba);
+    const weaponDamage = useSelector(state => state.user.weaponDamage);
     // difficult is time in seconds to defeat monster, reward is liftetime boba multiplier
     const monsters = [
         { name: "Bobamonster", health: 100, speed: 20, hue: 55, saturate: 10, spawnRate: 30, difficulty: 10000, reward: 0.1},
@@ -111,7 +113,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
 
     const handleMonsterClick = () => {
         setHealth(prevHealth => {
-            const newHealth = prevHealth - 10;
+            const newHealth = prevHealth - weaponDamage;
             if (newHealth <= 0) {
                 dispatch(addNotification({
                     type: 'success',
@@ -120,6 +122,7 @@ function Monster({spawnMonster, setSpawnMonster}) {
                 }));
                 setPosition({ x: 0, y: 0 });
                 dispatch(incrementByAmount(monster.reward * lifetimeBoba));
+                dispatch(updateMonstersSlain());
                 setMonsterSpawned(false);
                 return 0; // Reset health to 0
             }

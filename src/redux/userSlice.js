@@ -14,17 +14,20 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     name: "Bob A.",
     items: [
-        { id: 0, amount: 0 },
-        { id: 1, amount: 0 },
-        { id: 2, amount: 0 },
-        { id: 3, amount: 0 },
-        { id: 4, amount: 0 },
-        { id: 5, amount: 0 },
-        { id: 6, amount: 0 },
-        { id: 7, amount: 0 },
-        { id: 8, amount: 0 },
-        { id: 9, amount: 0 },
+        { id: 0, amount: 0, tier: 0 },
+        { id: 1, amount: 0, tier: 0 },
+        { id: 2, amount: 0, tier: 0 },
+        { id: 3, amount: 0, tier: 0 },
+        { id: 4, amount: 0, tier: 0 },
+        { id: 5, amount: 0, tier: 0 },
+        { id: 6, amount: 0, tier: 0 },
+        { id: 7, amount: 0, tier: 0 },
+        { id: 8, amount: 0, tier: 0 },
+        { id: 9, amount: 0, tier: 0 },
     ],
+    weaponDamage: 1,
+    monstersSeen: 0,
+    monstersSlain: 0,
     timePlayed: 0,
 }
 
@@ -48,10 +51,16 @@ const userSlice = createSlice({
             state.name = name || state.name
             state.items = items || state.items
             state.timePlayed = timePlayed || state.timePlayed
+        },
+        updateMonstersSeen: (state) => {
+            state.monstersSeen += 1
+        },
+        updateMonstersSlain: (state) => {
+            state.monstersSlain += 1
         }
     },
 })
 
 const { actions, reducer } = userSlice
-export const { updatePlayerName, updateItemAmount, updateTimePlayed, updateUserState } = actions
+export const { updatePlayerName, updateItemAmount, updateTimePlayed, updateUserState, updateMonstersSeen, updateMonstersSlain } = actions
 export default reducer
