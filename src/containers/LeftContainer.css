@@ -41,6 +41,28 @@
     animation: waveBounce 10s ease-in-out infinite;
     z-index: 2;
   }
+
+  .floating-plus-one {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+    user-select: none;
+    animation: floatUp 0.6s ease-out forwards;
+    z-index: 999;
+  }
+  
+  @keyframes floatUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+  }
   
   @keyframes waveBounce {
     0% {

@@ -7,3 +7,17 @@
     align-items: flex-end;
     z-index: 1000;
 }
+
+.close-all-notifications{
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+
+    &.disabled {
+        background-color: #ccc;
+    }
+}

@@ -25,7 +25,7 @@ const initialState = {
         { id: 8, amount: 0, tier: 0 },
         { id: 9, amount: 0, tier: 0 },
     ],
-    weaponDamage: 1,
+    weaponDamage: 2,
     monstersSeen: 0,
     monstersSlain: 0,
     timePlayed: 0,

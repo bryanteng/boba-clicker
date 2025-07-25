@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import './LeftContainer.css';
 import BobaPearls from '../components/BobaPearls';
-// import ClickText from '../components/ClickText';
 import { incrementTotalClicks } from '../redux/bobaSlice';
 import { defaultImage } from './../util/items.js'
 
@@ -13,15 +12,26 @@ function LeftContainer() {
     const name = useSelector(state => state.user.name);
     const dispatch = useDispatch();
 
-    // TODO: floating +1 text 
-    const handleBobaClick = (event) => {
-        dispatch(incrementTotalClicks());
-        const id = crypto.randomUUID();
+    // TODO: add a select to change boba "flavor" for added bonus effects
 
-        console.log(id)
-        // need to create a container for clicktext, similar to notification container 
-        // img component for boba, rewrite needed. import new component that will also hold clicktext array? 
-        // <ClickText location ={{ x: event.clientX, y: event.clientY }} />
+    const handleBobaClick = (e) => {
+        dispatch(incrementTotalClicks());
+        const container = document.querySelector('.left-container');
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+      
+        const span = document.createElement("span");
+        span.className = "floating-plus-one";
+        span.textContent = "+1";
+        span.style.left = `${x}px`;
+        span.style.top = `${y}px`;
+      
+        container.appendChild(span);
+      
+        setTimeout(() => {
+          span.remove();
+        }, 600);
     }
 
   return (
