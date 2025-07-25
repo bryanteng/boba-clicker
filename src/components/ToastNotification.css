@@ -27,8 +27,38 @@
   .toast-message {
     flex: 1;
   }
+
+  .toast-close-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
   
-  /* Toast animations */
+  .toast-fuse {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, #ffc107, #ff6b6b);
+    animation: burnFuse var(--toast-duration, 3000ms) linear forwards;
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+  @keyframes burnFuse {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+  
+
   @keyframes slideUpFade {
     from {
       transform: translateY(20px);

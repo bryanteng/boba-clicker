@@ -15,7 +15,10 @@ function NotificationsContainer() {
     }
 
     const handleMouseEnter = () => {
-        if(notifications.length === 0) return;
+        if(notifications.length === 0){
+            setNotificationButtonText("X");
+            return;
+        }
         setNotificationButtonText("Close All Notifications");
     }
 
@@ -24,7 +27,6 @@ function NotificationsContainer() {
     }
 
     const handleCloseAllNotificationsButtonClick = () => {
-        console.log("Closing all notifications");
         dispatch(clearNotifications());
     }
 
