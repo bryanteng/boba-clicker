@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/boba-clicker/static/css/main.3ea61fff.css",
-    "main.js": "/boba-clicker/static/js/main.98f26b00.js",
+    "main.css": "/boba-clicker/static/css/main.f96828b6.css",
+    "main.js": "/boba-clicker/static/js/main.882e95c0.js",
     "static/js/453.bb827719.chunk.js": "/boba-clicker/static/js/453.bb827719.chunk.js",
     "static/media/background.png": "/boba-clicker/static/media/background.8bf7d08fe25c4a8ab059.png",
     "index.html": "/boba-clicker/index.html",
-    "main.3ea61fff.css.map": "/boba-clicker/static/css/main.3ea61fff.css.map",
-    "main.98f26b00.js.map": "/boba-clicker/static/js/main.98f26b00.js.map",
+    "main.f96828b6.css.map": "/boba-clicker/static/css/main.f96828b6.css.map",
+    "main.882e95c0.js.map": "/boba-clicker/static/js/main.882e95c0.js.map",
     "453.bb827719.chunk.js.map": "/boba-clicker/static/js/453.bb827719.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ea61fff.css",
-    "static/js/main.98f26b00.js"
+    "static/css/main.f96828b6.css",
+    "static/js/main.882e95c0.js"
   ]
 }
