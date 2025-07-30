@@ -1,11 +1,11 @@
-.right-container{
-    grid-column: 3;
-    border-left: 2px solid black; 
+.right-container {
+  grid-column: 3;
+  border-left: 2px solid black;
 
-    overflow-y: scroll;
-    padding-bottom: 20vh;
-    header {
-        padding: 10px;
-        border-bottom: 1px solid black;
-    }
+  overflow-y: scroll;
+  padding-bottom: 20vh;
+  header {
+    padding: 10px;
+    border-bottom: 1px solid black;
+  }
 }

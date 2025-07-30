@@ -5,7 +5,10 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   font-family: monospace;
-  img, div, span, p {
+  img,
+  div,
+  span,
+  p {
     user-select: none;
   }
 }

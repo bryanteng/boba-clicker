@@ -1,8 +1,8 @@
-.player-info{
-    border: 1px solid black;
-    grid-row: 1;
+.player-info {
+  border: 1px solid black;
+  grid-row: 1;
 
-    height: 30vh;
-    position: relative;
-    background-color: hsla(29, 21%, 73%, .7);
+  height: 30vh;
+  position: relative;
+  background-color: hsla(29, 21%, 73%, 0.7);
 }

@@ -1,5 +1,5 @@
 .middle-container {
-    grid-column: 2;
-    grid-template-rows: 3fr 7fr;
-    background-image: url("../../public/images/background.png");
+  grid-column: 2;
+  grid-template-rows: 3fr 7fr;
+  background-image: url("../../public/images/background.png");
 }

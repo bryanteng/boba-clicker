@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { defaultImage } from './../util/items.js'
+import React, { useMemo } from "react";
+import { defaultImage } from "./../util/items.js";
 
-import './BobaPearls.css';
+import "./BobaPearls.css";
 
 const MAX_PEARLS = 50;
 
@@ -26,8 +26,8 @@ const BobaPearls = ({ count }) => {
             left: `${p.left}%`,
             bottom: `${p.bottom}%`,
             animationDuration: `${p.duration}s`,
-            display: i < count ? 'block' : 'none',
-            width: '2.5vw',
+            display: i < count ? "block" : "none",
+            width: "2.5vw",
           }}
           alt="boba pearl"
         />

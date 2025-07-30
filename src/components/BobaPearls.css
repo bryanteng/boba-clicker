@@ -1,18 +1,18 @@
 .boba-pearl {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    animation-name: bob;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  animation-name: bob;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  @keyframes bob {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
+  50% {
+    transform: translateY(-8px);
   }
-  
+}

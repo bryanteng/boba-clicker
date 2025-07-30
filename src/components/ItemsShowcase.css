@@ -1,13 +1,12 @@
-.items-showcase{
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
+.items-showcase {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
 
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 70vh;
-    width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 70vh;
+  width: 100%;
 
-    border: 1px solid black; 
-
+  border: 1px solid black;
 }

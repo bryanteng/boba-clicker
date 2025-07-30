@@ -1,133 +1,133 @@
-const publicPath = process.env.PUBLIC_URL || '';
+const publicPath = process.env.PUBLIC_URL || "";
 const imagePath = `${publicPath}/images/`;
 
 function getImageUrl(imageName) {
-    return `${imagePath}/${imageName}`;
+  return `${imagePath}/${imageName}`;
 }
 
 export const monsterImage = getImageUrl("bobamonster.png");
 export const defaultImage = getImageUrl("boba_pearl.webp");
 
 const items = [
-    {
-        id: 0,
-        name: "pointer",
-        description: "A simple pointer that collects boba.",
-        baseCost: 10,
-        increment: 10,
-        image: getImageUrl("pointer.png"),
-        bps: .1,
-    },
-    {
-        id: 1,
-        name: "bobarista",
-        description: "A barista that brews boba drinks.",
-        baseCost: 100,
-        increment: 100,
-        image: getImageUrl("barista.png"),
-        bps: .8,
-    },
-    {
-        id: 2,
-        name: "boba farm",
-        description: "A farm that grows boba plants.",
-        baseCost: 10000,
-        increment: 10000,
-        image: getImageUrl("bobafarm.png"),
-        bps: 400,
-    },
-    {
-        id: 3,
-        name: "boba factory",
-        description: "A factory that produces boba at an industrial scale.",
-        baseCost: 1500000,
-        increment: 1500000,
-        image: getImageUrl("bobafactory.png"),
-        bps: 1600,
-    },
-    {
-        id: 4,
-        name: "tapioca mine",
-        description: "A mine that extracts pure tapioca pearls.",
-        baseCost: 75000000,
-        increment: 75000000,
-        image: getImageUrl("tapiocamine.png"),
-        bps: 13000,
-    },
-    {
-        id: 5,
-        name: "tea reasearch lab",
-        description: "Enhances tea DNA for optimized output.",
-        baseCost: 500000000,
-        increment: 500000000,
-        image: getImageUrl("tearesearchlab.png"),
-        bps: 34000,
-    },
-    {
-        id: 6,
-        name: "quantum tea generator",
-        description: "Uses quantum fusion to brew tea instantly.",
-        baseCost: 3000000000,
-        increment: 3000000000,
-        image: getImageUrl("quantumteagenerator.png"),
-        bps: 78000,
-    },
-    {
-        id: 7,
-        name: "intergalactic boba station",
-        description: "Boba for space travelers and alien connoisseurs.",
-        baseCost: 20000000000,
-        increment: 20000000000,
-        image: getImageUrl("intergalacticbobastation.png"),
-        bps: 180000,
-    },
-    {
-        id: 8,
-        name: "time warped bubble chamber",
-        description: "Produces boba across timelines simultaneously.",
-        baseCost: 100000000000,
-        increment: 100000000000,
-        image: getImageUrl("timewarpedbubblechamber.png"),
-        bps: 400000,
-    },
-    {
-        id: 9,
-        name: "bobalithic singularity core",
-        description: "Boba condensed into pure universal essence.",
-        baseCost: 600000000000,
-        increment: 600000000000,
-        image: getImageUrl("bobalithicsingularitycore.png"),
-        bps: 890000,
-    }
-
-]
+  {
+    id: 0,
+    name: "pointer",
+    description: "A simple pointer that collects boba.",
+    baseCost: 10,
+    increment: 10,
+    image: getImageUrl("pointer.png"),
+    bps: 0.1,
+  },
+  {
+    id: 1,
+    name: "bobarista",
+    description: "A barista that brews boba drinks.",
+    baseCost: 100,
+    increment: 100,
+    image: getImageUrl("barista.png"),
+    bps: 0.8,
+  },
+  {
+    id: 2,
+    name: "boba farm",
+    description: "A farm that grows boba plants.",
+    baseCost: 10000,
+    increment: 10000,
+    image: getImageUrl("bobafarm.png"),
+    bps: 400,
+  },
+  {
+    id: 3,
+    name: "boba factory",
+    description: "A factory that produces boba at an industrial scale.",
+    baseCost: 1500000,
+    increment: 1500000,
+    image: getImageUrl("bobafactory.png"),
+    bps: 1600,
+  },
+  {
+    id: 4,
+    name: "tapioca mine",
+    description: "A mine that extracts pure tapioca pearls.",
+    baseCost: 75000000,
+    increment: 75000000,
+    image: getImageUrl("tapiocamine.png"),
+    bps: 13000,
+  },
+  {
+    id: 5,
+    name: "tea reasearch lab",
+    description: "Enhances tea DNA for optimized output.",
+    baseCost: 500000000,
+    increment: 500000000,
+    image: getImageUrl("tearesearchlab.png"),
+    bps: 34000,
+  },
+  {
+    id: 6,
+    name: "quantum tea generator",
+    description: "Uses quantum fusion to brew tea instantly.",
+    baseCost: 3000000000,
+    increment: 3000000000,
+    image: getImageUrl("quantumteagenerator.png"),
+    bps: 78000,
+  },
+  {
+    id: 7,
+    name: "intergalactic boba station",
+    description: "Boba for space travelers and alien connoisseurs.",
+    baseCost: 20000000000,
+    increment: 20000000000,
+    image: getImageUrl("intergalacticbobastation.png"),
+    bps: 180000,
+  },
+  {
+    id: 8,
+    name: "time warped bubble chamber",
+    description: "Produces boba across timelines simultaneously.",
+    baseCost: 100000000000,
+    increment: 100000000000,
+    image: getImageUrl("timewarpedbubblechamber.png"),
+    bps: 400000,
+  },
+  {
+    id: 9,
+    name: "bobalithic singularity core",
+    description: "Boba condensed into pure universal essence.",
+    baseCost: 600000000000,
+    increment: 600000000000,
+    image: getImageUrl("bobalithicsingularitycore.png"),
+    bps: 890000,
+  },
+];
 
 const bobaGuns = [
-    {
-      tier: 1,
-      name: "Pearl Popper",
-      description: "A basic boba shooter. Shoots one tapioca pearl at a time."
-    },
-    {
-      tier: 2,
-      name: "Tapioca Blaster",
-      description: "Upgraded pressure chamber, fires rapid boba bursts."
-    },
-    {
-      tier: 3,
-      name: "Milk Tea Cannon",
-      description: "Pressurized milk tea reservoir—splash damage included."
-    },
-    {
-      tier: 4,
-      name: "Brown Sugar Obliterator",
-      description: "Overheats with syrupy power, melts through monsters."
-    },
-    {
-      tier: 5,
-      name: "Bobalithic Railgun",
-      description: "Harnesses singularity-grade tea tech for instant boba vaporization."
-    }
-  ];
+  {
+    tier: 1,
+    name: "Pearl Popper",
+    description: "A basic boba shooter. Shoots one tapioca pearl at a time.",
+  },
+  {
+    tier: 2,
+    name: "Tapioca Blaster",
+    description: "Upgraded pressure chamber, fires rapid boba bursts.",
+  },
+  {
+    tier: 3,
+    name: "Milk Tea Cannon",
+    description: "Pressurized milk tea reservoir—splash damage included.",
+  },
+  {
+    tier: 4,
+    name: "Brown Sugar Obliterator",
+    description: "Overheats with syrupy power, melts through monsters.",
+  },
+  {
+    tier: 5,
+    name: "Bobalithic Railgun",
+    description:
+      "Harnesses singularity-grade tea tech for instant boba vaporization.",
+  },
+];
 
 export default items;
