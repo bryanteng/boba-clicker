@@ -14,16 +14,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   name: "Bob A.",
   items: [
-    { id: 0, amount: 0, tier: 0 },
-    { id: 1, amount: 0, tier: 0 },
-    { id: 2, amount: 0, tier: 0 },
-    { id: 3, amount: 0, tier: 0 },
-    { id: 4, amount: 0, tier: 0 },
-    { id: 5, amount: 0, tier: 0 },
-    { id: 6, amount: 0, tier: 0 },
-    { id: 7, amount: 0, tier: 0 },
-    { id: 8, amount: 0, tier: 0 },
-    { id: 9, amount: 0, tier: 0 },
+    { id: 0, amount: 0, tier: 0, bps: 0 },
+    { id: 1, amount: 0, tier: 0, bps: 0 },
+    { id: 2, amount: 0, tier: 0, bps: 0 },
+    { id: 3, amount: 0, tier: 0, bps: 0 },
+    { id: 4, amount: 0, tier: 0, bps: 0 },
+    { id: 5, amount: 0, tier: 0, bps: 0 },
+    { id: 6, amount: 0, tier: 0, bps: 0 },
+    { id: 7, amount: 0, tier: 0, bps: 0 },
+    { id: 8, amount: 0, tier: 0, bps: 0 },
+    { id: 9, amount: 0, tier: 0, bps: 0 },
   ],
   weaponDamage: 2,
   monstersSeen: 0,
@@ -39,9 +39,12 @@ const userSlice = createSlice({
       state.name = action.payload;
     },
     updateItemAmount: (state, action) => {
-      const id = action.payload;
+      const { id, bps } = action.payload;
       const item = state.items.find((item) => item.id === id);
-      item.amount += 1;
+      if (item) {
+        item.amount += 1;
+        item.bps = item.amount * bps * 2 ** item.tier;
+      }
     },
     updateTimePlayed: (state, action) => {
       state.timePlayed += action.payload;
